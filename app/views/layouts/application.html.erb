@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SushiTesting</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <%= link_to 'Sushi Creator', root_path %>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><%= link_to 'Edit Information', edit_user_registration_path %></li>
+          <li><%= link_to 'Add Sushi Roll', new_sushi_roll_path %></li>
+          <li><%= link_to 'Log Out', destroy_user_session_path %></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

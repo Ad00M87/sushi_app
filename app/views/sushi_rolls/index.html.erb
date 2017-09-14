@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col s12 m4">
+    <h3>Welcome <%= current_user.first_name %></h3>
+    <h4>You have: <%= current_user.sushi_rolls.count %> rolls of sushi.</h4>
+  </div>
+  <div class="col s12 m8">
+    <% if current_user.sushi_rolls.any? %>
+      <% @sushi_rolls.each do |sushi_roll| %>
+        <div class="row">
+          <div class="col s12 m4">
+            <%= sushi_roll.name %>, $<%= sushi_roll.price %>
+            <br>
+            <% if sushi_roll.spicy? %>
+              <%= "Spicy, will melt your mouth." %>
+            <% else %>
+              <%= "No spice, hope you like the taste of fish." %>
+            <% end %>
+            <br>
+            <%= sushi_roll.fish %>, <%= sushi_roll.wrap %>
+            <br>
+            <%= sushi_roll.description %>
+          </div>
+          <div class="col s12 m5">
+            <img src="/assets/cal.jpg" alt="" width="90%">
+            <%= "This will be an uploaded picture someday" %>
+          </div>
+          <div class="col s12 m3">
+            <%= link_to "Edit", edit_sushi_roll_path(sushi_roll) %>
+            <%= link_to "Delete", sushi_roll_path(sushi_roll), method: :delete %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <%= "You are low on sushi rolls. You may want to reconsider your life choices and go get real food before someone forces you to eat nasty fish" %>
+      <br>
+      <%= link_to 'Add some rolls', new_sushi_roll_path, class: 'btn' %>
+    <% end %>
+  </div>
+</div>

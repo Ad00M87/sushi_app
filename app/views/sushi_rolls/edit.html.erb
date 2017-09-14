@@ -1,0 +1,35 @@
+<div class="row">
+  <%= form_for @sushi_roll do |f| %>
+    <div class="col s12 m4">
+      <%= f.label :name %>
+      <%= f.text_field :name, autofocus: true %>
+    </div>
+    <div class="col s12 m4">
+      <%= f.label :price %>
+      <%= f.text_field :price %>
+    </div>
+    <div class="col s12 m4">
+      <%= f.label :roll_count, 'How many individual items come in a roll?' %>
+      <%= f.text_field :roll_count %>
+    </div>
+    <div class="col s12 m2">
+      <%= f.check_box :spicy, :checked => true %>
+      <%= f.label :spicy, 'Spicy? ' %>
+    </div>
+    <div class="col s12 m5">
+      <%= f.label :fish %>
+      <%= f.text_field :fish %>
+    </div>
+    <div class="col s12 m5">
+      <%= f.label :wrap %>
+      <%= f.text_field :wrap %>
+    </div>
+    <div class="col s12">
+      <%= f.label :description, "Tell us a little about the roll" %>
+      <%= f.text_area :description %>
+    </div>
+    <div class="col s12 m6 offset-m6">
+     <%= f.submit "Add Roll", class: 'btn' %>
+    </div>
+  <% end %>
+</div>

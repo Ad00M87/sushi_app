@@ -1,0 +1,19 @@
+<h2><%= @sushi_roll.name %></h2>
+<div class="row">
+  <div class="col s12 m4">
+    <h3>$<%= @sushi_roll.price %></h3>
+    <h5>There are <%= @sushi_roll.roll_count%> pieces per roll</h5>
+    <% if @sushi_roll.spicy? %>
+      <h5><%= "Spicy, will melt your mouth." %></h5>
+    <% else %>
+      <h5><%= "No spice, hope you like the taste of fish." %></h5>
+    <% end %>
+    <h5>Made with <%= @sushi_roll.fish %>, and  wrapped in <%=@sushi_roll.wrap %></h5>
+    <h6>What are people saying about it:</h6>
+    <p>"<%= @sushi_roll.description %>"</p>
+  </div>
+  <div class="col s12 m8">
+    <img src="/assets/cal.jpg" alt="" width="100%">
+    <p>This will be replaced with user uploaded images eventually</p>
+  </div>
+</div>
